@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Dayreel</title>
+
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Slidebars CSS -->
+        <link rel="stylesheet" href="assets/css/slidebars.css">
+
+        <!-- Dayreel CSS -->
+        <link rel="stylesheet" href="assets/css/dayreel.css">
+        <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!--TODO IE9 styles-->
+    </head>
+    <body>
+        <nav class="navbar navbar-dayreel navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="col-lg-4 col-md-3 col-sm-3 col-xs-2" >
+                    <a href="javascript:void(0);" class="openOverlayLink">
+                        <img src="assets/css/img/menuOverlayIcon.png" alt="" class="pull-left"> 
+                        <span class="pull-left closeOverlay hidden-xs">menu</span>
+                    </a>
+
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-5 col-xs-10  text-center" >
+                    <div class="clearfix">
+                        <a class="logoHref" href="#">
+                            <img src="assets/css/img/logo.png" alt="dayReel" class="img-responsive logoImg"/>
+                        </a>
+                    </div>
+                    <div class="clearfix logoText">
+                        Engage with your favorite small businesses
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+                    <div class="signupBlock col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                        <a href="#" class="signupLink  signUp pull-right">Sign Up </a>
+                        <span class="signupLink signup-divider pull-right">|</span>
+                        <a href="#" class="signupLink login pull-right">Login </a>
+                    </div>
+                    <div class="dateBlock col-lg-12 col-md-12 col-sm-12 col-xs-6">
+
+                        <img src="assets/css/img/watch.png" alt="" class="img-responsive hidden-sm hidden-xs pull-right"/>
+                        <span class="pull-right dateBlockText">Tues, Sept 5 </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="sb-site">
+            <div class="clearfix">
+                <div class="container noPadding-middle">
+
+                    <!--<div class="row">-->
+                    <div class="col-lg-12 col-md-9 col-md-push-3 col-lg-push-0 noPadding-desktop noPadding-middle noPadding-small">
+                        <div class="menuBlocks clearfix">
+                            <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
+                                <a href="#" class="topMenuLink">
+                                    Find Businesses
+                                    <span class="menuDivider">|</span>
+                                </a>
+                            </div>
+                            <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
+                                <a href="#" class="topMenuLink">
+                                    Book Online
+                                    <span class="menuDivider">|</span>
+                                </a>
+                            </div>
+                            <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
+                                <a href="#" class="topMenuLink" >
+                                    Share Referrals
+                                </a>
+                            </div>
+                        </div>
+                        <div class="searchBlocks clearfix">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 noPadding-desktop noPadding-middle noPadding-small searchInputWrapper">
+                                <input class="dayreel-input" type="text" value="" placeholder="What are you looking for? Hair, Lawn care, Cleaners...">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 noPadding-desktop searchOrangeBlock">
+                                <div class="whiteTriangle  pull-left hidden-xs"></div> 
+                                <a href="javascript:void(0);" class="pull-left searchLink">Kansas City?</a>
+                                <button type="button" class="searchBtn pull-right"></button>
+
+                            </div>
+                        </div>
+                        <div class="videoBlocks clearfix">
+                            <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12 noPadding-desktop noPadding-small">
+                                <div class="videoWrapper">
+                                    <div class="howItWorks">How it works</div>
+                                    <img src="assets/css/img/videoThumb.png" alt="" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 noPadding-desktop noPadding-small">
+                                <ul class="homeList">
+                                    <li class="homeList-li">
+                                        <span class="homeList-round pull-left"></span>
+                                        <div class="pull-left">
+                                            <div class="homeList-bigText">Visit any online business or search DayReel. </div>
+                                            <div class="homeList-smallText">Find your favorite business?  Click your Reel (wheel logo) button.</div>
+                                        </div>
+                                    </li>
+                                    <li class="homeList-li">
+                                        <span class="homeList-round pull-left"></span>
+                                        <div class="pull-left">
+                                            <div class="homeList-bigText">Clicking the Reel (wheel logo) button saves</div>
+                                            <div class="homeList-smallText">the business to My Portfolio.</div>
+                                        </div>
+                                    </li>
+                                    <li class="homeList-li">
+                                        <span class="homeList-round pull-left"></span>
+                                        <div class="pull-left">
+                                            <div class="homeList-bigText">Collect all of your favorite businesses in one location. </div>
+                                            <div class="homeList-smallText">You can organize them, share them, and book online.</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button type="button" class="btnInstall">Install Reel Button</button>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="portfolio-blocks col-lg-12 col-md-3 col-md-pull-9 col-lg-pull-0">
+                        <div class="container portfolio-header" >
+                            <h3>Start Building Your Personal Portfolio!</h3>
+                        </div>
+                        <div class="container portfolio-item-slide" >
+                            <ul>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Donna</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item donna'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Home</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item home'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Ethan</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item ethan'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Grant</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item grant'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Lance</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item lance'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Riley</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item riley'>
+                                        </span>
+                                    </li>
+                                </a>
+                                <a href="#">
+                                    <li class='col-custom-portfolio-item'>
+                                        <h5 class='portfolio-name'>Car</h5>
+                                        <span class='divider'>
+                                        </span>
+                                        <span class='portfolio-item car'>
+                                        </span>
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                      
+                    </div>
+                    <!--</div>-->
+
+
+                </div>
+            </div>
+
+            <div id="push">
+            </div>
+        </div>
+        <div id="footer" class='clear-fix'>
+            <div class='container noPadding-middle'>
+                <div class='footer-menu-block'>
+                    <ul class='top-link'>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="#">REFER A BUSINESS</a></li>
+                    </ul>
+                    <ul class='bottom-link'>
+                        <li>&copy;&nbsp;Copyright&nbsp;&nbsp;|</li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class='social-link-block'>
+                    <ul class='social-link'>
+                        <li>
+                            <a href="#">
+                                <span class='social-icon' id='twitter'></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class='social-icon' id='facebook'></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class='social-icon' id='google'></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class='social-icon' id='youtube'></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sb-slidebar sb-left sb-style-overlay">
+            <!-- Your left Slidebar content. -->
+
+            <ul class="slidebarMenu">
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconHome pull-left active"></span>
+                        <span class="sidebar-text pull-left">Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon  sidebar-iconHowItWorks pull-left"></span>
+                        <span class="sidebar-text pull-left">How it works</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconInstall pull-left"></span>
+                        <span class="sidebar-text pull-left">Install the Reel</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconFind pull-left"></span>
+                        <span class="sidebar-text pull-left">Find businesses</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconSign pull-left"></span>
+                        <span class="sidebar-text pull-left">Sign your business up</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconContactUs pull-left"></span>
+                        <span class="sidebar-text pull-left">Contact us</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="overlay hidden">
+            <a href="javascript:void(0);" class="closeOverlayLink">
+                <img src="assets/css/img/menuOverlayIcon.png" alt="" class="pull-left"> 
+                <span class="pull-left closeOverlay">menu</span>
+            </a>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+
+        <!-- jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!-- Slidebars -->
+        <script src="assets/js/slidebars.min.js"></script>
+
+        <!-- Management of pages -->
+        <script src="assets/js/dayreel.js"></script>        
+    </body>
+</html>
