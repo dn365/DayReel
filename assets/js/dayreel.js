@@ -30,7 +30,8 @@
         		$(this).find('span.sidebar-icon').css('background-position-x', '-25px');
         	},
         	function() {
-        		$(this).find('span.sidebar-icon').css('background-position-x', '0');	
+        		if ( !$(this).find('span.sidebar-icon').hasClass('active') )
+        			$(this).find('span.sidebar-icon').css('background-position-x', '0');	
         	});
 
         $('li.col-custom-portfolio-item').hover(
@@ -50,5 +51,10 @@
 			function() {
 				$(this).css('background-position-y', '0');	
 			});
+
+		/**
+		 *	Enabling Tooltip with background orange color
+		 */
+		$('[data-toggle="tooltip"]').tooltip();
     });
 })(jQuery);
