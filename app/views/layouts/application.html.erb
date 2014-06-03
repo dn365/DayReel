@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title><%= 'Welcome to DayReel' || @page_title %>|Dayreel</title>
+
+        <!-- Bootstrap -->
+        <%= stylesheet_link_tag    "application" %>
+        <!-- <link rel="shortcut icon" type="image/png" href="favicon.ico"/> -->
+        <%= favicon_link_tag 'favicon.ico', alt: "", type:"image/png" %>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!--TODO IE9 styles-->
+    </head>
+
+    <body>
+        <!--MODALS -->
+
+        <!--login modal-->
+        <div class="modal fade dayreel-modal" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header dayreel-modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title text-center" id="myModalLabel" >Welcome back!</h4>
+                    </div>
+                    <div class="modal-body">
+                    	<%= form_for @user, :as => :user, url: 'login', html: {:class => 'form-horizontal'} do |f| %>
+                        <!-- <form class="form-horizontal"> -->
+                            <!-- Text input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="emailLogin" name="emailLogin" type="text" placeholder="email" class="input-md dayreel-input" required=""> -->
+                                <%= f.text_field :email, :class => 'input-md dayreel-input', :placeholder => 'Email', :id => "emailLogin" %>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="passwordLogin" name="passwordLogin" type="password" placeholder="password" class="input-md dayreel-input" required=""> -->
+                                <%= f.password_field :password, :class => 'input-md dayreel-input', :placeholder => 'Password', :id => "passwordLogin" %>
+                            </div>
+
+                            <!-- Checkbox  -->
+                            <div class="form-group text-center">
+                                <!-- <label class="checkbox-inline" for="remember-0">
+                                    <input type="checkbox" name="remember" id="remember-0" value="1">
+                                    Keep me logged in
+                                </label> -->
+                                <label class='checkbox-inline' for="remember_me">
+									Keep me logged in<%= f.check_box :remember_me, :id => "remember_me" %>
+								</label>
+                            </div>
+                            <div class="form-group text-center">
+                                <span class="form-text">By signing in, you are agreeing to the <a href="#" class="orange-link">terms of service</a></span>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group text-center ">
+                                <!-- <button id="loginBtn" name="loginBtn" class="btn btn-orange">Sign In</button> -->
+                                <%= f.button 'Sign In', :type => 'submit', :class => 'btn btn-orange', :id => "loginBtn" %>
+                            </div>
+                            <div class="form-group text-center  forgot-pass-link">
+                                <span class="form-text">
+                                    <a href="#" class="orange-link">Forgot your Password?</a>
+                                </span>
+                            </div>
+                        <!-- </form> -->
+                        <% end %>
+
+                    </div>
+                    <div class="modal-footer dayreel-modal-footer">
+                        <div class="footer-orange-block">
+                            <span class="form-text white-text">New to DayReel?</span>
+                            <div class="text-center ">
+                                <a href="#" class="btn btn-white" data-toggle="modal" data-target="#signupModal">Sign Up Here!</a>
+                            </div>
+                        </div>
+                        <div class="footer-corner-block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of login modal-->
+
+        <!--sign up modal-->
+        <div class="modal fade dayreel-modal" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header dayreel-modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title text-center" id="myModalLabel" >Sign up here!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <form class="form-horizontal"> -->
+                        <%= form_for @user, :as => :user, url: 'register', html: {:class => 'form-horizontal'} do |f| %>
+                            <!-- Text input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="firstNameSignup" name="firstNameSignup" type="text" placeholder="first name" class="input-md dayreel-input" required=""> -->
+                                <%= f.text_field :first_name, :class => 'input-md dayreel-input', :placeholder => 'First Name', :required => "" %>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="lastNameSignup" name="lastNameSignup" type="text" placeholder="last name" class="input-md dayreel-input" required=""> -->
+                                <%= f.text_field :last_name, :class => 'input-md dayreel-input', :placeholder => 'Last Name', :id => "lastNameSignup", :required => "" %>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="emailSignup" name="emailSignup" type="text" placeholder="email" class="input-md dayreel-input" required=""> -->
+                                <%= f.text_field :email, :class => 'input-md dayreel-input', :placeholder => 'Email', :id => "emailSignup", :required => "" %>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group text-center">
+                                <!-- <input id="passwordSignup" name="passwordSignup" type="password" placeholder="password" class="input-md dayreel-input" required=""> -->
+                                <%= f.password_field :password, :class => 'input-md dayreel-input', :placeholder => 'Password', :id => "passwordSignup", :required => "" %>
+                            </div>
+
+                            <div class="form-group text-center ">
+                                <span class="form-text full-width-text">By clicking the "I agree" button below you are agreeing to the <a href="#" class="orange-link">terms of service</a></span>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group text-center ">
+                                <!-- <button id="signupBtn" name="loginBtn" class="btn btn-orange">I agree. Sign me up!</button> -->
+                                <%= f.button 'I agree. Sign me up!', :type => 'submit', :class => 'btn btn-orange', :id => "signupBtn" %>
+                            </div>
+                        <!-- </form> -->
+                        <% end %>
+
+                    </div>
+                    <div class="modal-footer dayreel-modal-footer">
+                        <div class="footer-orange-block">
+                            <span class="form-text white-text">Already on DayReel?</span>
+                            <div class="text-center ">
+                                <a href="#" class="white-text" data-toggle="modal" data-target="#signinModal"> Login In </a>
+                                <span class="white-text">|</span>  
+                                <a href="#" class="white-text" data-toggle="modal" data-target="#signinModal">Bussiness Owners </a>
+                            </div>
+                        </div>
+                        <div class="footer-corner-block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--login modal-->
+        <!--END OF MODALS-->
+
+
+        <nav class="navbar navbar-dayreel navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-2" >
+                    <a href="javascript:void(0);" class="openOverlayLink">
+                        <%= image_tag "menuOverlayIcon.png", alt: "", class: "pull-left" %>
+                        <span class="pull-left closeOverlay hidden-xs hidden-sm">menu</span>
+                    </a>
+
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-10  text-center" >
+                    <div class="clearfix">
+                        <%= link_to :root, :class => 'logoHref' do |a| %>
+                            <%= image_tag "logo.png", alt: "dayReel", class: "img-responsive logoImg" %>
+                        <% end %>
+                        <!-- <a class="logoHref" href="#">
+                            <%= image_tag "logo.png", alt: "dayReel", class: "img-responsive logoImg" %>
+                        </a> -->
+                    </div>
+                    <div class="clearfix logoText">
+                        Engage with your favorite small businesses
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+                	<% if current_user.nil? %>
+                    <div class="signupBlock col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                        <a href="#" class="signupLink  signUp" data-toggle="modal" data-target="#signupModal">Sign Up </a>
+                        <span class="signupLink signup-divider">|</span>
+                        <a href="#" class="signupLink login" data-toggle="modal" data-target="#signinModal">Login </a>
+                    </div>
+                    <% else %>
+                    <!--SHOW THIS FOR LOGGED USER-->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                        <div class="btn-group dayreel-btngroup">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Hello&nbsp;<%= current_user.first_name %> <span class="caret"></span>
+                            </button>
+
+                            <ul class="dropdown-menu dayreel-dropdown">
+                                <li class="dayreel-dropdown-li">
+                                    <%= link_to 'portfolio' do |a| %>
+                                        <span class="dropdown-icon dropdown-portfolio-icon"></span>
+                                        <span class="dropdown-text">
+                                            My Portfolio
+                                        </span>
+                                    <% end %>
+                                    <!-- <a href="portfolio.html">
+                                        <span class="dropdown-icon dropdown-portfolio-icon"></span>
+                                        <span class="dropdown-text">
+                                            My Portfolio
+                                        </span>
+                                    </a> -->
+                                </li>
+                                <li class="dayreel-dropdown-li">
+                                    <a href="#"> 
+                                        <span class="dropdown-icon dropdown-schedule-icon"></span>
+                                        <span class="dropdown-text">
+                                            My Schedule
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="dayreel-dropdown-li">
+                                    <a href="#">
+                                        <span class="dropdown-icon dropdown-account-icon"></span>
+                                        <span class="dropdown-text">
+                                            My Account
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="dayreel-dropdown-li">
+                                    <a href="#">
+                                        <span class="dropdown-icon dropdown-new-icon"></span>
+                                        <span class="dropdown-text">
+                                            Refer a New Biz
+                                        </span>
+                                    </a>
+                                </li> 
+                                <li class="dayreel-dropdown-bottom">
+                                    <%= link_to "sign_out" do |a| %>
+                                    <!-- <a href="#" class="dropdown-bottom-href"> -->
+                                        <span class="dropdown-icon dropdown-signout-icon"></span>
+                                        <span class="dropdown-text">
+                                            Sign Out
+                                        </span>
+                                    <!-- </a> -->
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--SHOW THIS FOR LOGGED USER-->
+                    <% end %>
+                    <div class="dateBlock col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                        <%= image_tag "watch.png", alt: "", class: "img-responsive hidden-sm hidden-xs pull-right" %>
+                        <span class="pull-right dateBlockText">Tues, Sept 5 </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+		<%= yield %>
+
+
+            <div id="footer" class="clearfix">
+                <div class="container noPadding-middle noPadding-verySmall">
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 noPadding-verySmall">
+                        <div class="col-xs-12 noPadding-verySmall">
+                            <ul class="top-link">
+                                <li><%= link_to 'home', :root %></li>
+                                <li><a href="#">faq</a></li>
+                                <li><a href="#">contact us</a></li>
+                                <li><a href="#">refer a business</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 noPadding-verySmall">
+                            <ul class="bottom-link">
+                                <li>&copy;&nbsp;2014&nbsp;dayreel&nbsp;&nbsp;|</li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 noPadding-verySmall">
+                        <ul class="social-link">
+                            <li>
+                                <a href="#">
+                                    <span class="social-icon twitter" ></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="social-icon facebook" ></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="social-icon google" ></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="social-icon youtube" ></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="sb-slidebar sb-left sb-style-overlay">
+            <!-- Your left Slidebar content. -->
+
+            <ul class="slidebarMenu">
+                <li class="sidebar-li">
+                    <%= link_to :root, :class => 'sidebar-link' do |a| %>
+                        <span class="sidebar-icon sidebar-iconHome pull-left <% if @curSlideItem == 'home' %>active <% end %>"></span>
+                        <span class="sidebar-text pull-left">Home</span>
+                    <% end %>
+                    <!-- <a href="index.html" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconHome pull-left active"></span>
+                        <span class="sidebar-text pull-left">Home</span>
+                    </a> -->
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon  sidebar-iconHowItWorks pull-left"></span>
+                        <span class="sidebar-text pull-left">How it works</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconInstall pull-left"></span>
+                        <span class="sidebar-text pull-left">Install the Reel</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <%= link_to "search", :class => 'sidebar-link' do |a| %>
+                        <span class="sidebar-icon sidebar-iconFind pull-left <% if @curSlideItem == 'find' %>active <% end %>"></span>
+                        <span class="sidebar-text pull-left">Find businesses</span>
+                    <% end %>
+                    <!-- <a href="search.html" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconFind pull-left"></span>
+                        <span class="sidebar-text pull-left">Find businesses</span>
+                    </a> -->
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconSign pull-left"></span>
+                        <span class="sidebar-text pull-left">Sign your business up</span>
+                    </a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon sidebar-iconContactUs pull-left"></span>
+                        <span class="sidebar-text pull-left">Contact us</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="overlay hidden"><!-- 
+            <a href="javascript:void(0);" class="closeOverlayLink">
+                <%= image_tag "menuOverlayIcon.png", alt: "", class: "pull-left" %>
+                <span class="pull-left closeOverlay">menu</span>
+            </a> -->
+        </div>
+
+        <%= javascript_include_tag "application" %>
+    </body>
+</html>
