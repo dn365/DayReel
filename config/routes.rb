@@ -1,5 +1,5 @@
 DayreelBackend::Application.routes.draw do
-
+##
 	root :to => 'home#index'
 	match 'register' => 'home#register'
 	match 'login' => 'home#login'
