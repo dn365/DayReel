@@ -25,14 +25,18 @@ class HomeController < ApplicationController
 			update_authentication_token(user, params[:user][:remember_me])
 			user.save
 			session[:user_id] = user.id
+      redirect_to :root
 			# flash[:notice] = 'Hi ' + user.name + ', you logged in as ' + user.username
-			redirect_to :root
-		else
-			flash.now[:error] = 'Unknown user. Please check your username and password.'
-			redirect_to :root
+    else
+       flash[:alert] = 'Unknown user. Please check your username and password.'
+       redirect_to :sign_error
 			# redirect_to :root
-		end
-	end
+    end
+  end
+
+  def sign_error
+
+  end
 
 	def register
 		user = User.new(params[:user])

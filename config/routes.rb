@@ -1,11 +1,14 @@
 DayreelBackend::Application.routes.draw do
-##
+
 	root :to => 'home#index'
 	match 'register' => 'home#register'
-	match 'login' => 'home#login'
+	#match 'login' => 'home#login'
 	match 'sign_out' => 'home#sign_out'
 	match 'portfolio' => 'portfolio#index'
 	match 'search' => 'portfolio#search'
+
+  post "login"  => "home#login"
+  match 'sign_error' => 'home#sign_error'
 
 	get "api/auth_with_email"
 	get "api/auth_with_token"
