@@ -6,14 +6,10 @@
             <div class="col-lg-12 col-md-8 col-md-push-4 col-lg-push-0 noPadding-desktop noPadding-middle noPadding-small leftPadding">
                 <div class="menuBlocks clearfix">
                     <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
-                        <%= link_to 'search', :class => 'topMenuLink' do |a| %>
+                         <a href="#" class="topMenuLink">
                             Find Businesses
                             <span class="menuDivider">|</span>
-                        <% end %>
-                        <!-- <a href="#" class="topMenuLink">
-                            Find Businesses
-                            <span class="menuDivider">|</span>
-                        </a> -->
+                        </a>
                     </div>
                     <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
                         <a href="#" class="topMenuLink">
@@ -28,15 +24,16 @@
                     </div>
                 </div>
                 <div class="searchBlocks clearfix">
-                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 noPadding-desktop noPadding-middle noPadding-small searchInputWrapper">
-                        <input class="dayreel-input" type="text" value="" placeholder="What are you looking for? Hair, Lawn care, Cleaners...">
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 noPadding-desktop searchOrangeBlock">
-                        <div class="whiteTriangle  pull-left hidden-xs"></div> 
+                  <%= form_for @biz,  :as => :biz,  url: 'filter', html: {:class => 'form-horizontal'} do |f| %>
+                      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 noPadding-desktop noPadding-middle noPadding-small searchInputWrapper">
+                        <%= f.text_field :name, :class => 'dayreel-input', :placeholder => 'What are you looking for? Hair, Lawn care, Cleaners...'%>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 noPadding-desktop searchOrangeBlock">
+                        <div class="whiteTriangle  pull-left hidden-xs"></div>
                         <a href="javascript:void(0);" class="pull-left searchLink">Kansas City?</a>
-                        <button type="button" class="searchBtn pull-right"></button>
-
-                    </div>
+                        <%= f.button '', :type => 'submit', :class => 'searchBtn pull-right'%>
+                      </div>
+                  <% end %>
                 </div>
                 <div class="videoBlocks clearfix">
                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12 noPadding-desktop noPadding-small">
@@ -69,7 +66,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <button type="button" class="btnInstall">Install Reel Button</button>
+                      <a href="ex.crx" class="btnInstall btn">Install Reel Button</a>
                     </div>
                 </div>
             </div>

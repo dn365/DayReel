@@ -1,14 +1,14 @@
 <div id="sb-site">
 <div class="container">
-  <div class="login-error clearfix">
-      <div class="alert alert-danger">
-            Oh snap! Unknown user. Please check your username and password.
-      </div>
-      <div class="pull-right clearfix">
-          <a type="button" href="/" class="btn btn-orange">back</a>
-          <a type="button"  data-target="#signinModal" data-toggle="modal" class="btn btn-orange">login</a>
-      </div>
-  </div>
+    <div class="login-error clearfix">
+        <div class="alert alert-danger">
+            <%= flash[:error] %>
+        </div>
+        <div class="pull-right clearfix">
+            <a type="button" href="/" class="btn btn-orange">back</a>
+            <a type="button"  data-target="#signinModal" data-toggle="modal" class="btn btn-orange">login</a>
+        </div>
+    </div>
 </div>
 <style>
   .login-error{

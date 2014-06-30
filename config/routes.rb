@@ -1,11 +1,20 @@
 DayreelBackend::Application.routes.draw do
 
+
+
+  match ':controller(/:action(/:id))(.:format)'
+
+
 	root :to => 'home#index'
 	match 'register' => 'home#register'
 	#match 'login' => 'home#login'
 	match 'sign_out' => 'home#sign_out'
 	match 'portfolio' => 'portfolio#index'
-	match 'search' => 'portfolio#search'
+	match 'search' => 'bizs#search'
+
+  match 'filter' => 'bizs#filter'
+  match 'create' => 'bizs#create'
+  # match 'download' => 'bizs#download'
 
   post "login"  => "home#login"
   match 'sign_error' => 'home#sign_error'

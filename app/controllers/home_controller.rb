@@ -28,15 +28,16 @@ class HomeController < ApplicationController
       redirect_to :root
 			# flash[:notice] = 'Hi ' + user.name + ', you logged in as ' + user.username
     else
-       flash[:alert] = 'Unknown user. Please check your username and password.'
+       flash[:error] = 'Unknown user. Please check your username and password.'
+       # render :json => user.to_json
        redirect_to :sign_error
 			# redirect_to :root
     end
   end
 
-  def sign_error
-
-  end
+  # def sign_error
+  #
+  # end
 
 	def register
 		user = User.new(params[:user])
