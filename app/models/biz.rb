@@ -1,4 +1,4 @@
 class Biz < ActiveRecord::Base
   #belongs_to :user
-  attr_accessible :name, :address, :city, :phone, :note, :url, :rate
+  attr_accessible :company_name, :address, :city, :phone, :biz_type, :url, :rate, :state, :email
 end
