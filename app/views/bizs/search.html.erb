@@ -23,19 +23,22 @@
                         </a>
                     </div>
                 </div>
-                <div class="searchBlocks clearfix">
-                    <div><%=@test %></div>
-                    <%= form_for @biz,  :as => :biz,  url: 'filter', html: {:class => 'form-horizontal'} do |f| %>
+
+
+              <div class="searchBlocks clearfix">
+                <%= form_tag(search_url, method:'get', class:'form-horizontal' ) do %>
                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 noPadding-desktop noPadding-middle noPadding-small searchInputWrapper">
-                        <%= f.text_field :name, :class => 'dayreel-input', :placeholder => 'What are you looking for? Hair, Lawn care, Cleaners...'%>
+                      <%= text_field_tag :key, nil,:class => 'dayreel-input', :placeholder => 'What are you looking for? Hair, Lawn care, Cleaners...'%>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 noPadding-desktop searchOrangeBlock">
-                        <div class="whiteTriangle  pull-left hidden-xs"></div> 
-                        <a href="javascript:void(0);" class="pull-left searchLink">Kansas City?</a>
-                        <%= f.button '', :type => 'submit', :class => 'searchBtn pull-right'%>
+                      <div class="whiteTriangle  pull-left hidden-xs"></div>
+                      <a href="javascript:void(0);" class="pull-left searchLink">Kansas City?</a>
+                      <%= button_tag 'button', :type => 'submit', :class => 'searchBtn pull-right'%>
                     </div>
-                    <% end %>
-                </div>
+                <% end %>
+              </div>
+
+
             </div>
         </div>
         <div class="container noPadding-middle">
@@ -50,7 +53,7 @@
                     <a href="#" class="search-topMenuLink">
                         Kansas City
                     </a>
-                    <!--<span class="search-menuDivider">&lt;</span>-->
+                    <span class="search-menuDivider">&lt;</span>
                 </div>
                 <div class="col-custom col-md-4 col-sm-4 col-xs-4" >
                     <a href="#" class="search-topMenuLink" >
@@ -77,19 +80,20 @@
                             <!--<option value="asc">Ascending</option>-->
                             <!--<option value="des">Descending</option>-->
                         <!--</select>-->
-                        <input type="hidden" id="key" value="<%= @key %>"/>
+                        <input type="hidden" id="filter-key" value="<%= @key %>"/>
                         <%= select_tag('sort_type', options_for_select([['Ascending', 1], ['Descending', 2]], @sort_type), id: 'search-sortOption') %>
                     </span>
                 </div>
             </div>
             <div class="clearfix" id="searchResultBlocks">
                 <ul class="searchItemsBlock">
+                  <% if @bizs %>
                     <% @bizs.each do |biz| %>
                     <li class="searchResult-item col-sm-4">
                         <div class="clearfix item-wrapper">
                             <div class="biz-info clearfix">
                                 <div class="biz-header clearfix">
-                                    <p class="biz-name"><%= biz.name %></p>
+                                    <p class="biz-name"><%= biz.company_name %></p>
                                     <a href="#">
                                         <span class="biz-name-icon"></span>
                                     </a>
@@ -100,7 +104,7 @@
                                     <span class="city"><%= biz.city %></span>
                                 </p>
                                 <p class="biz-phoneBlocks"><%= biz.phone %></p>
-                                <p class="biz-noteBlocks"><%= biz.note %></p>
+                                <p class="biz-noteBlocks"><%= biz.state %></p>
                             </div>
                             <div class="actions">
                                 <ul class="action-link-blocks">
@@ -122,15 +126,24 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="action-buttons">
-                                  <a class="action-buttons" href="<%= biz.url %>">
-                                    <button type="button" class="action-button" >BOOK NOW</button>
-                                  </a>
-                                </div>
+                              <div class="action-buttons">
+                                <% if current_user.nil? %>
+                                    <%= link_to raw("<button type=\"button\" class=\"action-button\" >BOOK NOW</button>"), "#", class: "action-buttons", "data-toggle"=>"modal", "data-target"=>"#signinModal"  %>
+                                <% else %>
+                                    <a class="action-buttons" href="<%= biz.url %>">
+
+
+
+                                      <button type="button" class="action-button" >BOOK NOW</button>
+
+                                </a>
+                                    <% end %>
+                              </div>
                             </div>
                         </div>
                     </li>
                     <% end %>
+                      <% end %>
                 </ul>
             </div>
             <!--<div class="inforBlocks clearfix" id="paginationBlocks">-->

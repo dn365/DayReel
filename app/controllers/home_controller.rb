@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  # skip_before_filter :verify_authenticity_token, :only => [:login]
 	protect_from_forgery
 
 	layout 'application'
@@ -25,19 +25,20 @@ class HomeController < ApplicationController
 			update_authentication_token(user, params[:user][:remember_me])
 			user.save
 			session[:user_id] = user.id
-      redirect_to :root
-			# flash[:notice] = 'Hi ' + user.name + ', you logged in as ' + user.username
+      redirect_to root_url
+      # render json: {success: "ok"}
+      # flash[:notice] = 'Hi ' + user.name + ', you logged in as ' + user.username
     else
-       flash[:error] = 'Unknown user. Please check your username and password.'
-       # render :json => user.to_json
-       redirect_to :sign_error
-			# redirect_to :root
+      # respond_to do |format|
+      #   format.html {render :login}
+      #   format.js {render :layout => false}
+      # end
+
+      # flash[:error] = 'Unknown user. Please check your username and password.'
+      render json: {error: "Unknown User #{email}. Please check your username and password."}
+      # redirect_to root_url
     end
   end
-
-  # def sign_error
-  #
-  # end
 
 	def register
 		user = User.new(params[:user])

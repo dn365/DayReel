@@ -17,8 +17,8 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
         <!--TODO IE9 styles-->
+      <%= csrf_meta_tag %>
     </head>
 
     <body>
@@ -33,29 +33,32 @@
                         <h4 class="modal-title text-center" id="myModalLabel" >Welcome back!</h4>
                     </div>
                     <div class="modal-body">
-                    	<%= form_for @user, :as => :user, url: 'login', html: {:class => 'form-horizontal'} do |f| %>
-                        <!-- <form class="form-horizontal"> -->
+
+
+
+                        <p id="error-info"></p>
+
+
+                         <div class="form-horizontal">
                             <!-- Text input-->
                             <div class="form-group text-center">
-                                <!-- <input id="emailLogin" name="emailLogin" type="text" placeholder="email" class="input-md dayreel-input" required=""> -->
-                                <%= f.text_field :email, :class => 'input-md dayreel-input', :placeholder => 'Email', :id => "emailLogin" %>
+                                 <input id="emailLogin" name="emailLogin" type="text" placeholder="email" class="input-md dayreel-input" required="">
+
                             </div>
 
                             <!-- Password input-->
                             <div class="form-group text-center">
-                                <!-- <input id="passwordLogin" name="passwordLogin" type="password" placeholder="password" class="input-md dayreel-input" required=""> -->
-                                <%= f.password_field :password, :class => 'input-md dayreel-input', :placeholder => 'Password', :id => "passwordLogin" %>
+                                 <input id="passwordLogin" name="passwordLogin" type="password" placeholder="password" class="input-md dayreel-input" required="">
+
                             </div>
 
                             <!-- Checkbox  -->
                             <div class="form-group text-center">
-                                <!-- <label class="checkbox-inline" for="remember-0">
+                                <label class="checkbox-inline" for="remember-0">
                                     <input type="checkbox" name="remember" id="remember-0" value="1">
                                     Keep me logged in
-                                </label> -->
-                                <label class='checkbox-inline' for="remember_me">
-									Keep me logged in<%= f.check_box :remember_me, :id => "remember_me" %>
-								</label>
+                                </label>
+
                             </div>
                             <div class="form-group text-center">
                                 <span class="form-text">By signing in, you are agreeing to the <a href="#" class="orange-link">terms of service</a></span>
@@ -63,16 +66,16 @@
 
                             <!-- Button -->
                             <div class="form-group text-center ">
-                                <!-- <button id="loginBtn" name="loginBtn" class="btn btn-orange">Sign In</button> -->
-                                <%= f.button 'Sign In', :type => 'submit', :class => 'btn btn-orange', :id => "loginBtn" %>
+                                 <a id="loginBtn" href="#" name="loginBtn" class="btn btn-orange">Sign In</a>
+
                             </div>
                             <div class="form-group text-center  forgot-pass-link">
                                 <span class="form-text">
                                     <a href="#" class="orange-link">Forgot your Password?</a>
                                 </span>
                             </div>
-                        <!-- </form> -->
-                        <% end %>
+                         </div>
+
 
                     </div>
                     <div class="modal-footer dayreel-modal-footer">
@@ -362,6 +365,6 @@
             </a> -->
         </div>
 
-        <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag "application", "home" %>
     </body>
 </html>

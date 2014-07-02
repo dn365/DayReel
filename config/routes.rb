@@ -10,7 +10,8 @@ DayreelBackend::Application.routes.draw do
 	#match 'login' => 'home#login'
 	match 'sign_out' => 'home#sign_out'
 	match 'portfolio' => 'portfolio#index'
-	match 'search' => 'bizs#search'
+	# match 'search' => 'bizs#search'
+  get "search" => "bizs#search", as: "search"
 
   match 'filter' => 'bizs#filter'
   match 'create' => 'bizs#create'

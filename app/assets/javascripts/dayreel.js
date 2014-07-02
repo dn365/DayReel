@@ -60,13 +60,3 @@
 
     });
 })(jQuery);
-
-jQuery(function(){
-    $('#search-sortOption').on('change', function(){
-
-        var sort_type=$(this).val(),key=$("#key").val()
-
-        window.location.href="/search?sort_type="+sort_type+"&key="+key;
-
-    });
-});

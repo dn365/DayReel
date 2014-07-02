@@ -24,14 +24,14 @@
                     </div>
                 </div>
                 <div class="searchBlocks clearfix">
-                  <%= form_for @biz,  :as => :biz,  url: 'filter', html: {:class => 'form-horizontal'} do |f| %>
+                  <%= form_tag(search_url, method:'get', class:'form-horizontal' ) do %>
                       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 noPadding-desktop noPadding-middle noPadding-small searchInputWrapper">
-                        <%= f.text_field :name, :class => 'dayreel-input', :placeholder => 'What are you looking for? Hair, Lawn care, Cleaners...'%>
+                        <%= text_field_tag :key, nil,:class => 'dayreel-input', :placeholder => 'What are you looking for? Hair, Lawn care, Cleaners...'%>
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 noPadding-desktop searchOrangeBlock">
                         <div class="whiteTriangle  pull-left hidden-xs"></div>
                         <a href="javascript:void(0);" class="pull-left searchLink">Kansas City?</a>
-                        <%= f.button '', :type => 'submit', :class => 'searchBtn pull-right'%>
+                        <%= button_tag 'button', :type => 'submit', :class => 'searchBtn pull-right'%>
                       </div>
                   <% end %>
                 </div>
